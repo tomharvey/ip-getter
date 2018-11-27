@@ -1,0 +1,23 @@
+service: ip-getter
+provider:
+  name: aws
+  apiKeys:
+    - auth_${self:service.name}_${opt:stage}
+  runtime: python3.6
+  stage: ${opt:stage, env:STAGE, 'development'}
+  region: ${opt:region, 'eu-west-1'}
+  memorySize: 128
+  timeout: 30
+  environment:
+    STAGE: ${opt:stage, self:provider.stage}
+    REGION: ${opt:region, self:provider.region}
+
+functions:
+  ip-getter:
+    handler: handler.ip_getter
+    events:
+      - http:
+          path: ip-getter
+          method: GET
+          cors: false
+          private: true
