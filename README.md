@@ -16,16 +16,12 @@ Besides, the 45 servers which ipgetter v0.6.0 made random use of were never
 particularly fast and they were all HTTP (no SSL!).
 
 So, this is a simple, easy to deploy IP reporting service - giving you your own
-data management, using SSL, with API key authentication, and ever within a VPC
+data management, using SSL, with API key authentication, and even within a VPC
 if you like.
 
 I'm using it to tell my [pyftpdlib](https://github.com/giampaolo/pyftpdlib)
-based FTP server what it's external IP is when it's behind NAT. But, you can
-just use your own deployment of it to check your WAN IP anywhere.
-
-It's pretty straightforward, but hopefully saves someone from having to trawl
-through the lack of documentation about what's available in the `event` and the
-`context` objects in a lambda api gateway request.
+based FTP server what its external IP is while it's behind NAT. But, you can
+ use your own deployment of it to check your WAN IP anywhere.
 
 ## Usage
 ### Dependancies
